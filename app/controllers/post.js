@@ -20,6 +20,9 @@ export default Ember.Controller.extend({
 			this.set('showmodal',true);
 		},
 		close12(){
+			let model = this.get('model');
+			console.log('model=> ',model);
+			//model.rollback();
 			this.set('showmodal',false);
 		},
 		submit(post){

@@ -20,5 +20,15 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  //cloudinary
+      app.import('bower_components/blueimp-load-image/js/load-image.all.min.js');
+    app.import('bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js');
+
+    app.import('bower_components/blueimp-file-upload/js/jquery.iframe-transport.js');
+    app.import('bower_components/blueimp-file-upload/js/jquery.fileupload.js');
+    app.import('bower_components/blueimp-file-upload/js/jquery.fileupload-process.js');
+    app.import('bower_components/blueimp-file-upload/js/jquery.fileupload-image.js');
+    app.import('bower_components/cloudinary/js/jquery.cloudinary.js')
+
   return app.toTree();
 };

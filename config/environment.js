@@ -6,6 +6,13 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+   cloudinary: {
+     //cloudName: 'dmowfiazz',
+    // cloudName:'qnvkqwwe',
+   // cloudName: 'dsyuko6f',
+    // apiKey: '954416254858714'
+   // apiKey:'dZAJLXF5viBRK4Q8Khfh5dTwPJo'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -14,7 +21,7 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
-      }
+      },
     },
 
     APP: {

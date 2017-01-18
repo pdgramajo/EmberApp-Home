@@ -15,7 +15,25 @@ export default Ember.Controller.extend({
              return this.get('model');
         }
     }.property('filter'),
-    
+    init: function () {
+      this._super();
+      const self = this;
+       Ember.run.schedule("afterRender",this,function() {
+           
+           
+                   Ember.$('#divFileUpload').append(
+            Ember.$.cloudinary.unsigned_upload_tag("qnvkqwwe", { cloud_name: 'dmowfiazz' })
+            .bind('cloudinarydone', function (e, data) {
+                Ember.$('.upload-result').html(Ember.$.cloudinary.image(data.result.public_id,
+                      { cloud_name: 'dmowfiazz',
+                          format: 'jpg', width: 150, height: 100,
+                          crop: 'thumb', gravity: 'face', effect: 'saturation:50'
+                      }))
+                }
+            )
+        );
+       });
+    },
     actions:{
 		viewForm(){
 			this.set('formIsVisible',true);
@@ -23,8 +41,22 @@ export default Ember.Controller.extend({
 		hideForm(){
 		    this.set('formIsVisible',false);
 		},
-		savePost(){
+         didSelectFiles(files, resetInput) {
+             	console.log('------------------------------------------');
+            	console.log('e => ',files);
+             console.log('------------------------------------------');
+             // Do something with your files.
+             // Once you're done, call the reset method:
+             resetInput();
+             // Now your input is reset!
+         },
+		savePost(e){
+
 		    
+		    console.log('------------------------------------------');
+              console.log('file => ',e);
+        
+              console.log('------------------------------------------');
 		    const title = this.get('title');
 		    const body = this.get('body');
 		    
@@ -52,8 +84,22 @@ export default Ember.Controller.extend({
             });*/
             
 		 post.destroyRecord();
+		},
+		showThumbnail(x){
+		    
+		    console.log('x=> ',x);
+		    
 		}
-		
 	}
     
 });
+
+
+    function handleFileSelect(evt) {
+              var file = evt.target.files[0];
+   
+              console.log('------------------------------------------');
+              console.log('file => ',file);
+        
+              console.log('------------------------------------------');
+}
